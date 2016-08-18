@@ -127,11 +127,11 @@ static audio_usecase_t voice_extn_get_usecase_for_session_idx(const int index)
         break;
 
     case MMODE1_SESS_IDX:
-        usecase_id = USECASE_VOICEMMODE1_CALL;
+        usecase_id = USECASE_VOICE_CALL;
         break;
 
     case MMODE2_SESS_IDX:
-        usecase_id = USECASE_VOICEMMODE2_CALL;
+        usecase_id = USECASE_VOICE2_CALL;
         break;
 
     default:
@@ -374,11 +374,11 @@ int voice_extn_get_session_from_use_case(struct audio_device *adev,
     switch(usecase_id)
     {
     case USECASE_VOICE_CALL:
-        *session = &adev->voice.session[VOICE_SESS_IDX];
+        *session = &adev->voice.session[MMODE1_SESS_IDX];
         break;
 
     case USECASE_VOICE2_CALL:
-        *session = &adev->voice.session[VOICE2_SESS_IDX];
+        *session = &adev->voice.session[MMODE2_SESS_IDX];
         break;
 
     case USECASE_VOLTE_CALL:
